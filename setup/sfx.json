@@ -1,0 +1,11 @@
+{
+  "_hinweis": "Soundeffekte von Mixkit (Mixkit Sound Effects Free License, https://mixkit.co/license/#sfxFree). Sie werden beim Setup auf deinem Rechner geladen und nicht mit diesem Repo verteilt.",
+  "sounds": [
+    {"file": "whoosh-1.wav", "url": "https://assets.mixkit.co/active_storage/sfx/1490/1490.wav", "gain_db": -1.9},
+    {"file": "whoosh-2.wav", "url": "https://assets.mixkit.co/active_storage/sfx/1492/1492.wav", "gain_db": -2.5},
+    {"file": "pop.wav", "url": "https://assets.mixkit.co/active_storage/sfx/2356/2356.wav", "gain_db": 0},
+    {"file": "riser.wav", "url": "https://assets.mixkit.co/active_storage/sfx/790/790.wav", "gain_db": 0},
+    {"file": "impact.wav", "url": "https://assets.mixkit.co/active_storage/sfx/1143/1143.mp3", "gain_db": -2.6},
+    {"file": "glass-crack.wav", "url": "https://assets.mixkit.co/active_storage/sfx/677/677.wav", "gain_db": -2.1}
+  ]
+}

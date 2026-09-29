@@ -1,0 +1,12 @@
+{
+  "name": "claude-video-editor",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Claude schneidet dein Video: Rohschnitt, Freisteller-Ebenen und Motion Graphics mit Claude Code und HyperFrames.",
+  "license": "MIT",
+  "engines": { "node": ">=22" },
+  "devDependencies": {
+    "hyperframes": "0.7.109",
+    "gsap": "3.14.2"
+  }
+}

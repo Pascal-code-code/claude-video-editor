@@ -1,0 +1,16 @@
+# Deine Aufnahmen, Projekte und Ergebnisse bleiben lokal
+input/*
+!input/.gitkeep
+output/*
+!output/.gitkeep
+projekte/*
+!projekte/.gitkeep
+node_modules/
+.venv/
+template/fx/sfx/
+template/fx/gsap.min.js
+*.mp4
+*.mov
+*.webm
+.DS_Store
+__pycache__/

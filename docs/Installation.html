@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<title>Claude schneidet dein Video</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --accent: #D97757;
+    --ink: #1a1a1a;
+    --ink-soft: #4a4a4a;
+    --paper: #ffffff;
+    --line: #e5e2df;
+    --card-bg: #faf9f7;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'Inter', -apple-system, sans-serif;
+    font-size: 14.5px;
+    line-height: 1.5;
+  }
+  .page {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 40px 48px;
+  }
+  h1 {
+    font-size: 34px;
+    font-weight: 800;
+    margin: 0 0 6px;
+    letter-spacing: -0.5px;
+  }
+  .subtitle {
+    color: var(--ink-soft);
+    font-size: 16px;
+    margin: 0 0 28px;
+  }
+  .intro-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-bottom: 32px;
+  }
+  .box {
+    background: var(--card-bg);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 18px 20px;
+  }
+  .box h3 {
+    margin: 0 0 8px;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+    color: var(--accent);
+    font-weight: 700;
+  }
+  .box p, .box li {
+    margin: 0;
+    font-size: 13.5px;
+    color: var(--ink);
+  }
+  .box ul {
+    margin: 0;
+    padding-left: 18px;
+  }
+  .box li { margin-bottom: 4px; }
+  h2.section {
+    font-size: 20px;
+    font-weight: 700;
+    margin: 36px 0 16px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid var(--accent);
+  }
+  .step {
+    display: grid;
+    grid-template-columns: 48px 1fr;
+    gap: 16px;
+    padding: 18px 0;
+    border-bottom: 1px solid var(--line);
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+  .step:last-child { border-bottom: none; }
+  .step-num {
+    font-size: 30px;
+    font-weight: 800;
+    color: var(--accent);
+    line-height: 1;
+  }
+  .step-body h4 {
+    margin: 0 0 6px;
+    font-size: 15.5px;
+    font-weight: 700;
+  }
+  .step-body p {
+    margin: 0 0 8px;
+    color: var(--ink-soft);
+  }
+  code, .mono {
+    font-family: 'SF Mono', Menlo, Consolas, monospace;
+    font-size: 12.5px;
+  }
+  .cmd {
+    display: block;
+    background: #1a1a1a;
+    color: #f2ede8;
+    border-radius: 8px;
+    padding: 10px 14px;
+    margin: 8px 0;
+    font-family: 'SF Mono', Menlo, Consolas, monospace;
+    font-size: 12.5px;
+    overflow-wrap: break-word;
+    white-space: pre-wrap;
+  }
+  .cmd .accent { color: #f0a888; }
+  .note {
+    font-size: 12.5px;
+    color: var(--ink-soft);
+    background: var(--card-bg);
+    border-left: 3px solid var(--accent);
+    padding: 8px 12px;
+    border-radius: 4px;
+    margin-top: 6px;
+  }
+  .check-box, .trouble-box {
+    background: var(--card-bg);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 20px 24px;
+    margin: 24px 0;
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+  .check-box h3, .trouble-box h3 {
+    margin: 0 0 12px;
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--accent);
+  }
+  .checklist { list-style: none; margin: 0; padding: 0; }
+  .checklist li {
+    padding: 5px 0 5px 26px;
+    position: relative;
+    font-size: 13.5px;
+  }
+  .checklist li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 8px;
+    width: 14px;
+    height: 14px;
+    border: 2px solid var(--accent);
+    border-radius: 3px;
+  }
+  .trouble-item {
+    margin-bottom: 10px;
+    font-size: 13.5px;
+  }
+  .trouble-item strong { color: var(--ink); }
+  .trouble-item span { color: var(--ink-soft); }
+  footer {
+    margin-top: 40px;
+    padding-top: 16px;
+    border-top: 1px solid var(--line);
+    font-size: 12.5px;
+    color: var(--ink-soft);
+    display: flex;
+    justify-content: space-between;
+  }
+  footer a { color: var(--accent); text-decoration: none; }
+  .credits {
+    font-size: 12px;
+    color: var(--ink-soft);
+    margin-top: 24px;
+  }
+  @media print {
+    @page { size: A4; margin: 14mm 12mm; }
+    body { font-size: 13px; }
+    .page { padding: 0; max-width: none; }
+    .step, .check-box, .trouble-box, .box { page-break-inside: avoid; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <h1>Claude schneidet dein Video</h1>
+  <p class="subtitle">Du nimmst dich einmal auf. Claude Code macht den Rest, genau wie in meinem Reel: oben Motion Graphics, unten das Original.</p>
+
+  <div class="intro-grid">
+    <div class="box">
+      <h3>Was du bekommst</h3>
+      <p>Ein 9:16-Reel mit Split Screen: oben du mit 3D-Effekten auf jedes Wort, unten deine Rohaufnahme. Jeder Satz, den du sprichst, ist ein Befehl an Claude, und der Effekt passt genau zum Wort.</p>
+    </div>
+    <div class="box">
+      <h3>Was du brauchst</h3>
+      <ul>
+        <li>Mac (Apple Silicon oder Intel)</li>
+        <li>Claude Code, Pro- oder Max-Plan</li>
+        <li>~5 GB freier Speicher</li>
+        <li>iPhone oder Kamera + Stativ</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2 class="section">So geht's, Schritt für Schritt</h2>
+
+  <div class="step">
+    <div class="step-num">1</div>
+    <div class="step-body">
+      <h4>Repo runterladen</h4>
+      <p>Auf der GitHub-Seite auf den grünen Button "Code" klicken, dann "Download ZIP". Entpacken und den Ordner "claude-video-editor" z.B. nach Dokumente schieben.</p>
+      <span class="cmd">Terminal-Alternative:
+git clone <span class="accent">https://github.com/Pascal-code-code/claude-video-editor.git</span></span>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-num">2</div>
+    <div class="step-body">
+      <h4>Ordner in Claude Code öffnen</h4>
+      <p>Desktop-App: Ordner "claude-video-editor" öffnen. Terminal: erst reinwechseln, dann Claude starten.</p>
+      <span class="cmd">cd claude-video-editor
+claude</span>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-num">3</div>
+    <div class="step-body">
+      <h4>Einmalige Einrichtung</h4>
+      <p>Claude prüft und installiert alles, was fehlt: ffmpeg, Node.js, die Python-Pakete, HyperFrames, das Freistell-Modell und Soundeffekte von Mixkit. Dauert ungefähr 10 bis 20 Minuten.</p>
+      <span class="cmd">/claude-video-editor setup</span>
+      <div class="note">Claude fragt vor jedem Befehl um Erlaubnis: einfach ja sagen. Fehlt Homebrew, gibt dir Claude einen Befehl. Den fügst du im Programm Terminal ein, tippst dein Mac-Passwort (man sieht es nicht) und startest das Setup danach nochmal.</div>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-num">4</div>
+    <div class="step-body">
+      <h4>Skript vorbereiten</h4>
+      <p>Öffne <span class="mono">skript-vorlage.md</span> im Ordner. Da steht mein Skript mit 13 Befehlen und Gesten-Notizen. Nimm es 1:1 oder lass dir ein eigenes bauen:</p>
+      <span class="cmd">Schreib mir das Skript zum Thema X im Format der Vorlage</span>
+      <div class="note">Wichtig: jeder Satz bleibt ein Befehl mit passender Geste.</div>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-num">5</div>
+    <div class="step-body">
+      <h4>Aufnehmen</h4>
+      <p>Handy quer, auf Stativ. Du stehst leicht links von der Mitte, rechts von dir freie Wand für Text und Grafik. Gutes Licht von vorne. Bei HDR: Einstellungen &gt; Kamera &gt; Video aufnehmen &gt; HDR-Video aus, sonst wirken die Farben schnell verwaschen. Wenn möglich externes Mikro.</p>
+      <p>Am Stück aufnehmen. Verhaspelst du dich, kurz Pause und den ganzen Satz wiederholen, Claude nimmt automatisch die letzte saubere Version.</p>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-num">6</div>
+    <div class="step-body">
+      <h4>Datei ablegen</h4>
+      <p>Die Videodatei (.mov oder .mp4) in den Ordner <span class="mono">input/</span> legen.</p>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-num">7</div>
+    <div class="step-body">
+      <h4>Schneiden lassen</h4>
+      <span class="cmd">/claude-video-editor</span>
+      <p>Claude transkribiert, wählt die besten Takes, entfernt Versprecher und Pausen und zeigt dir zuerst die Schnittliste plus einen Rohschnitt: <span class="mono">output/rohschnitt.mp4</span>. Du sagst ja oder was anders soll. Danach baut Claude die Effekte und rendert das fertige Video nach <span class="mono">output/</span>.</p>
+      <div class="note">Rechne mit 30 bis 60 Minuten Maschinenzeit für ein 30-Sekunden-Reel, das Freistellen braucht am meisten davon. Du musst nur ein paar Fragen beantworten.</div>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-num">8</div>
+    <div class="step-body">
+      <h4>Nachträglich ändern</h4>
+      <p>Einfach in normalen Worten sagen, was anders soll:</p>
+      <span class="cmd">Mach den Titel oben: Claude hat mein Video geschnitten
+Nimm meine eigenen Reel-Cover aus dem Ordner input/reels</span>
+    </div>
+  </div>
+
+  <div class="check-box">
+    <h3>Checkliste vor der Aufnahme</h3>
+    <ul class="checklist">
+      <li>Handy quer, auf Stativ</li>
+      <li>Du leicht links, rechts freie Wand</li>
+      <li>HDR-Video aus</li>
+      <li>Licht von vorne, kein Gegenlicht</li>
+      <li>Mikro dran, wenn vorhanden</li>
+      <li>Skript liegt bereit, Gesten geübt</li>
+    </ul>
+  </div>
+
+  <div class="trouble-box">
+    <h3>Wenn's hakt</h3>
+    <div class="trouble-item"><strong>"Befehl nicht gefunden" / command not found:</strong> <span>nochmal <span class="mono">/claude-video-editor setup</span> laufen lassen.</span></div>
+    <div class="trouble-item"><strong>Claude Code zeigt "skill not found":</strong> <span>du hast einen übergeordneten Ordner geöffnet statt "claude-video-editor" selbst.</span></div>
+    <div class="trouble-item"><strong>Render sehr langsam:</strong> <span>andere Programme schließen, das läuft alles auf der CPU.</span></div>
+    <div class="trouble-item"><strong>Gesicht wirkt verwaschen:</strong> <span>HDR war an. Claude wandelt es um, oder du nimmst mit HDR aus neu auf.</span></div>
+  </div>
+
+  <div class="credits">
+    HyperFrames von HeyGen (Apache-2.0), GSAP, WhisperX, rembg/u2net, Soundeffekte von Mixkit (werden auf deinem Rechner unter der Mixkit Free License geladen, nicht mit ausgeliefert). Claude ist eine Marke von Anthropic, dieses Projekt steht in keiner Verbindung zu Anthropic. Code: MIT-Lizenz, © 2026 Pascal Frey.
+  </div>
+
+  <footer>
+    <span>Claude Video Editor</span>
+    <a href="https://github.com/Pascal-code-code/claude-video-editor">github.com/Pascal-code-code/claude-video-editor</a>
+  </footer>
+
+</div>
+</body>
+</html>

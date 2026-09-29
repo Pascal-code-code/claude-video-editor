@@ -1,0 +1,147 @@
+{
+  "_hinweis": "Texte und Woerter dieses Videos. 'woerter' = das gesprochene Wort, auf dem der Effekt startet (wie im Transkript, Satzzeichen egal). Positionen sind Anteile des 16:9-Bildes (0 = links/oben, 1 = rechts/unten).",
+  "sprache": "de",
+  "texte": {
+    "titel1": "Claude Opus 5.5",
+    "titel2": "hat 100 % dieses Videos editiert 🤯",
+    "badge": "CLAUDE OPUS 5.5",
+    "original": "ORIGINAL",
+    "ebene1": "Hintergrund",
+    "ebene2": "Ich",
+    "ebene3": "Text",
+    "ausgeblendet": "AUSGEBLENDET",
+    "ebene_titel": [
+      "Dieses",
+      "Video",
+      "editiert",
+      "Claude."
+    ],
+    "name": "Dein Name",
+    "rolle": "DEIN THEMA",
+    "kicker": "DAS GUTE REEL · 3 SCHRITTE",
+    "liste": [
+      [
+        "Einstieg",
+        "der neugierig macht"
+      ],
+      [
+        "Direkt zeigen",
+        "worum es geht"
+      ],
+      [
+        "Versprechen",
+        "am Ende einlösen"
+      ]
+    ],
+    "cta_klein": "KOMMENTIERE",
+    "cta_wort": "EDIT",
+    "cta_band": "KOSTENLOSE ANLEITUNG",
+    "karte1": "Videoschnitt mit Claude",
+    "karte2": "ANLEITUNG · PDF"
+  },
+  "trailer": {
+    "teile": [
+      {
+        "klein": "Claude soll",
+        "gross": "Dieses Video",
+        "klein_bei": "Claude",
+        "gross_bei": "dieses",
+        "bg": "schwarz"
+      },
+      {
+        "klein": "für mich",
+        "gross": "schneiden",
+        "klein_bei": "für",
+        "gross_bei": "schneiden",
+        "bg": "bild"
+      },
+      {
+        "klein": "Ich sag ihm",
+        "gross": "einfach,",
+        "klein_bei": "Ich",
+        "gross_bei": "einfach",
+        "bg": "schwarz"
+      },
+      {
+        "klein": "was passieren",
+        "gross": "soll.",
+        "klein_bei": "was",
+        "gross_bei": "soll",
+        "bg": "bild"
+      }
+    ]
+  },
+  "woerter": {
+    "zoom": "Zoom",
+    "logo": "Claude-Logo",
+    "d3": "3D",
+    "nice": "Nice",
+    "kamera": "Kamera",
+    "okay": "Okay",
+    "zerlege": "Zerlege",
+    "ebenen": "Ebenen",
+    "hgrund": "Hintergrund",
+    "mich": "mich",
+    "text": "Text",
+    "blend": "blend",
+    "aus": "aus",
+    "zurueck": "zurück",
+    "rahmen": "Rahmen",
+    "links": "links",
+    "headline": "wie",
+    "reel": "Reel",
+    "vollbild": "Vollbild",
+    "reels": "Reels",
+    "oh": "Au",
+    "komm": "Kommentier",
+    "edit": "Edit",
+    "kostenlose": "kostenlose",
+    "karte": "Videoschnitt",
+    "kreis": "Claude"
+  },
+  "headline_woerter": 6,
+  "untertitel": {
+    "akzent": [
+      "Hand",
+      "Claude-Logo",
+      "3D",
+      "Kamera",
+      "schwieriger",
+      "Ebenen",
+      "Hintergrund",
+      "Text",
+      "aus",
+      "zurück",
+      "Rahmen",
+      "links",
+      "Reel",
+      "Vollbild",
+      "Reels",
+      "schweben",
+      "herumschweben",
+      "Au",
+      "Edit",
+      "Anleitung",
+      "Videoschnitt"
+    ],
+    "ersetzen": {
+      "Claw": "Claude",
+      "Cloud": "Claude"
+    }
+  },
+  "positionen": {
+    "hand": [
+      0.56,
+      0.76
+    ],
+    "wurf_hand": [
+      0.61,
+      0.42
+    ],
+    "kopf": [
+      0.42,
+      0.15
+    ],
+    "person_x": 0.45
+  }
+}

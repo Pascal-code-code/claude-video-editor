@@ -1,0 +1,47 @@
+/* pascal-fx.css: Stil zu pascal-fx.js. Farben ueber Variablen, Standard Claude-Orange. */
+:root{
+  --pfx-accent:#D97757; --pfx-accent-rgb:217,119,87; --pfx-glass:rgba(12,12,14,.72);
+  --pfx-font:"Inter",system-ui,sans-serif; --pfx-mono:"JetBrains Mono","SF Mono",ui-monospace,monospace;
+}
+/* Tiefen-Ebenen: im selben Container stapeln */
+.pfx-cam,.pfx-back,.pfx-person,.pfx-front,.pfx-caps{position:absolute;inset:0}
+.pfx-cam video,.pfx-person video{position:absolute;left:0;top:0;width:100%;height:100%;object-fit:cover;filter:brightness(1.045)}
+.pfx-back,.pfx-front,.pfx-person,.pfx-caps{pointer-events:none}
+.pfx-back{z-index:4}.pfx-person{z-index:5}.pfx-front{z-index:7}.pfx-caps{z-index:25}
+
+/* Text hinter der Person */
+.pfx-tb{position:absolute}
+.pfx-tb-line{line-height:.92;text-transform:uppercase;text-shadow:0 6px 30px rgba(0,0,0,.25);white-space:nowrap}
+
+/* Karten */
+.pfx-card{position:absolute;border-radius:14px;background:#222 center/cover;opacity:0;
+  box-shadow:0 0 0 1.5px rgba(255,255,255,.55),0 18px 40px rgba(0,0,0,.55)}
+.pfx-drop{z-index:62}
+.pfx-bonk{position:absolute;width:0;height:0;z-index:63;pointer-events:none}
+.pfx-bonk i{position:absolute;left:0;top:0;width:34px;height:4px;border-radius:2px;background:#fff;transform-origin:0 50%;opacity:0}
+
+/* 3D-Logo */
+.pfx-logo-wrap{position:absolute;inset:0;perspective:900px;pointer-events:none}
+.pfx-logo{position:absolute;transform-style:preserve-3d}
+.pfx-slice{position:absolute;inset:0;width:100%;height:100%}
+.pfx-slice.front{filter:drop-shadow(0 0 18px rgba(var(--pfx-accent-rgb),.55))}
+
+/* Blitz, Glassprung */
+.pfx-flash{position:absolute;inset:0;background:#fff;opacity:0;z-index:70;pointer-events:none}
+.pfx-crack{position:absolute;left:0;top:0;z-index:60;pointer-events:none;opacity:0}
+.pfx-crack path{fill:none;stroke-linecap:round;stroke-linejoin:round}
+.pfx-shards{position:absolute;inset:0;z-index:61;pointer-events:none}
+.pfx-shard{position:absolute;opacity:0}
+
+/* Chips */
+.pfx-chip{position:absolute;padding:12px 20px;border-radius:14px;background:var(--pfx-glass);border:1.5px solid rgba(255,255,255,.2);
+  display:flex;align-items:baseline;gap:14px;white-space:nowrap;opacity:0;font-family:var(--pfx-font)}
+.pfx-chip b{font-family:var(--pfx-mono);font-size:30px;color:var(--pfx-accent);font-weight:700}
+.pfx-chip span{font-size:40px;font-weight:800;color:#fff}
+.pfx-chip i{font-style:normal;font-family:var(--pfx-mono);font-size:22px;letter-spacing:.14em;color:rgba(255,255,255,.7)}
+
+/* Untertitel: Position ueber --pfx-cap-bottom / --pfx-cap-size */
+.pfx-cg{position:absolute;left:0;right:0;bottom:var(--pfx-cap-bottom,44px);text-align:center;opacity:0;white-space:nowrap}
+.pfx-cg span{display:inline-block;margin:0 .13em;font-family:var(--pfx-font);font-size:var(--pfx-cap-size,40px);font-weight:800;letter-spacing:-.01em;color:#fff;
+  text-shadow:0 2px 14px rgba(0,0,0,.75),0 1px 3px rgba(0,0,0,.6)}
+.pfx-cg span.k{color:var(--pfx-accent)}
