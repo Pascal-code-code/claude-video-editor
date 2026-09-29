@@ -10,7 +10,7 @@ Jeder Satz, den du sprichst, ist ein Befehl an Claude, und der Effekt landet gen
    ```
    git clone https://github.com/Pascal-code-code/claude-video-editor.git
    ```
-2. Ordner "claude-video-editor" in Claude Code öffnen (Desktop-App: Ordner wählen. Terminal: `cd claude-video-editor` dann `claude`).
+2. Ordner in Claude Code öffnen. Nach dem ZIP-Download heißt er "claude-video-editor-main", nach git clone "claude-video-editor" (Desktop-App: Ordner wählen. Terminal: in den Ordner wechseln, dann `claude`).
 3. Einmal einrichten:
    ```
    /claude-video-editor setup
@@ -48,7 +48,7 @@ Jeder Satz, den du sprichst, ist ein Befehl an Claude, und der Effekt landet gen
 ## Troubleshooting
 
 - "Befehl nicht gefunden" / command not found: `/claude-video-editor setup` nochmal laufen lassen.
-- Claude Code zeigt "skill not found": du hast einen übergeordneten Ordner geöffnet statt "claude-video-editor" selbst.
+- Claude Code zeigt "skill not found": du hast einen übergeordneten Ordner geöffnet statt den Repo-Ordner selbst (der mit README.md und skript-vorlage.md darin).
 - Render sehr langsam: andere Programme schließen, das läuft alles auf der CPU.
 - Gesicht wirkt verwaschen: HDR war an. Claude wandelt es um, oder du nimmst mit HDR aus neu auf.
 
